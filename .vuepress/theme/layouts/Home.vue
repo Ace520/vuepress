@@ -36,6 +36,11 @@ export default {
 };
 </script>
 <style>
+html,
+body {
+  background-color: #282c34!important;
+  color: #ffffff!important;
+}
 .jumbotron {
   display: flex;
   align-items: center;
@@ -75,6 +80,9 @@ export default {
   width: 1.8rem;
   height: 1.8rem;
   margin-right: 0.5rem;
+}
+.container ul li a{
+  color: #ffffff!important;
 }
 /* Small (sm) */
 @media (min-width: 640px) {
