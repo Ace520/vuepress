@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>vuepress</title>
+    <meta name="description" content="vuepress">
+    <meta name="generator" content="VuePress 1.4.0">
+    
+    
+    <link rel="preload" href="/vuepress/assets/css/0.styles.b243f495.css" as="style"><link rel="preload" href="/vuepress/assets/js/app.56c087e0.js" as="script"><link rel="preload" href="/vuepress/assets/js/6.7538206a.js" as="script"><link rel="preload" href="/vuepress/assets/js/13.22bf57bc.js" as="script"><link rel="prefetch" href="/vuepress/assets/js/10.bc216cc1.js"><link rel="prefetch" href="/vuepress/assets/js/11.bff31c36.js"><link rel="prefetch" href="/vuepress/assets/js/12.dad2eb2d.js"><link rel="prefetch" href="/vuepress/assets/js/14.567d22c8.js"><link rel="prefetch" href="/vuepress/assets/js/2.544c780b.js"><link rel="prefetch" href="/vuepress/assets/js/3.4669bb93.js"><link rel="prefetch" href="/vuepress/assets/js/4.1ef95519.js"><link rel="prefetch" href="/vuepress/assets/js/5.86e8de7a.js"><link rel="prefetch" href="/vuepress/assets/js/7.e7e79191.js"><link rel="prefetch" href="/vuepress/assets/js/8.ffbd2217.js"><link rel="prefetch" href="/vuepress/assets/js/9.e42ee41f.js">
+    <link rel="stylesheet" href="/vuepress/assets/css/0.styles.b243f495.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><div class="content__default"><p>基础使用
+// 定义一个 Eloquent 模型
+class User extends Model {}
+// 生成一个 Eloquent 模型
+php artisan make:model User
+// 生成一个 Eloquent 模型的时候，顺便生成迁移文件
+php artisan make:model User --migration OR -m
+// 生成一个 Eloquent 模型的时候，顺便生成迁移文件、控制器（或资源控制器）
+php artisan make:model User -mc[r]
+// 指定一个自定义的数据表名称
+class User extends Model {
+protected $table = 'my_users';
+}
+More
+Model::create(array('key' =&gt; 'value'));
+// 通过属性找到第一条相匹配的数据或创造一条新数据
+Model::firstOrCreate(array('key' =&gt; 'value'));
+// 通过属性找到第一条相匹配的数据或实例化一条新数据
+Model::firstOrNew(array('key' =&gt; 'value'));
+// 通过属性找到相匹配的数据并更新，如果不存在即创建
+Model::updateOrCreate(array('search_key' =&gt; 'search_value'), array('key' =&gt; 'value'));
+// 使用属性的数组来填充一个模型, 用的时候要小心「Mass Assignment」安全问题 !
+Model::fill($attributes);
+Model::destroy(1);
+Model::all();
+Model::find(1);
+// 使用双主键进行查找
+Model::find(array('first', 'last'));
+// 查找失败时抛出异常
+Model::findOrFail(1);
+// 使用双主键进行查找, 失败时抛出异常
+Model::findOrFail(array('first', 'last'));
+Model::where('foo', '=', 'bar')-&gt;get();
+Model::where('foo', '=', 'bar')-&gt;first();
+Model::where('foo', '=', 'bar')-&gt;exists();
+// 动态属性查找
+Model::whereFoo('bar')-&gt;first();
+// 查找失败时抛出异常
+Model::where('foo', '=', 'bar')-&gt;firstOrFail();
+Model::where('foo', '=', 'bar')-&gt;count();
+Model::where('foo', '=', 'bar')-&gt;delete();
+// 输出原始的查询语句
+Model::where('foo', '=', 'bar')-&gt;toSql();
+Model::whereRaw('foo = bar and cars = 2', array(20))-&gt;get();
+Model::on('connection-name')-&gt;find(1);
+Model::with('relation')-&gt;get();
+Model::all()-&gt;take(10);
+Model::all()-&gt;skip(10);
+// 默认的 Eloquent 排序是上升排序
+Model::all()-&gt;orderBy('column');
+Model::all()-&gt;orderBy('column','desc');
+// 查询 json 数据
+Model::where('options-&gt;language', 'en')-&gt;get(); # 字段是字符串
+Model::whereJsonContains('options-&gt;languages', 'en')-&gt;get(); # 字段是数组
+Model::whereJsonLength('options-&gt;languages', 0)-&gt;get(); # 字段长度为 0
+Model::whereJsonDoesntContain('options-&gt;languages', 'en')-&gt;get(); # 字段是数组, 不包含
+软删除
+Model::withTrashed()-&gt;where('cars', 2)-&gt;get();
+// 在查询结果中包括带被软删除的模型
+Model::withTrashed()-&gt;where('cars', 2)-&gt;restore();
+Model::where('cars', 2)-&gt;forceDelete();
+// 查找只带有软删除的模型
+Model::onlyTrashed()-&gt;where('cars', 2)-&gt;get();
+模型关联
+// 一对一 - User::phone()
+return $this-&gt;hasOne('App\Phone', 'foreign_key', 'local_key');
+// 一对一 - Phone::user(), 定义相对的关联
+return $this-&gt;belongsTo('App\User', 'foreign_key', 'other_key');</p> <p>// 一对多 - Post::comments()
+return $this-&gt;hasMany('App\Comment', 'foreign_key', 'local_key');
+//  一对多 - Comment::post()
+return $this-&gt;belongsTo('App\Post', 'foreign_key', 'other_key');</p> <p>// 多对多 - User::roles();
+return $this-&gt;belongsToMany('App\Role', 'user_roles', 'user_id', 'role_id');
+// 多对多 - Role::users();
+return $this-&gt;belongsToMany('App\User');
+// 多对多 - Retrieving Intermediate Table Columns
+$role-&gt;pivot-&gt;created_at;
+// 多对多 - 中介表字段
+return $this-&gt;belongsToMany('App\Role')-&gt;withPivot('column1', 'column2');
+// 多对多 - 自动维护 created_at 和 updated_at 时间戳
+return $this-&gt;belongsToMany('App\Role')-&gt;withTimestamps();</p> <p>// 远层一对多 - Country::posts(), 一个 Country 模型可能通过中介的 Users
+// 模型关联到多个 Posts 模型(User::country_id)
+return $this-&gt;hasManyThrough('App\Post', 'App\User', 'country_id', 'user_id');</p> <p>// 多态关联 - Photo::imageable()
+return $this-&gt;morphTo();
+// 多态关联 - Staff::photos()
+return $this-&gt;morphMany('App\Photo', 'imageable');
+// 多态关联 - Product::photos()
+return $this-&gt;morphMany('App\Photo', 'imageable');
+// 多态关联 - 在 AppServiceProvider 中注册你的「多态对照表」
+Relation::morphMap([
+'Post' =&gt; App\Post::class,
+'Comment' =&gt; App\Comment::class,
+]);</p> <p>// 多态多对多关联 - 涉及数据库表: posts,videos,tags,taggables
+// Post::tags()
+return $this-&gt;morphToMany('App\Tag', 'taggable');
+// Video::tags()
+return $this-&gt;morphToMany('App\Tag', 'taggable');
+// Tag::posts()
+return $this-&gt;morphedByMany('App\Post', 'taggable');
+// Tag::videos()
+return $this-&gt;morphedByMany('App\Video', 'taggable');</p> <p>// 查找关联
+$user-&gt;posts()-&gt;where('active', 1)-&gt;get();
+// 获取所有至少有一篇评论的文章...
+$posts = App\Post::has('comments')-&gt;get();
+// 获取所有至少有三篇评论的文章...
+$posts = Post::has('comments', '&gt;=', 3)-&gt;get();
+// 获取所有至少有一篇评论被评分的文章...
+$posts = Post::has('comments.votes')-&gt;get();
+// 获取所有至少有一篇评论相似于 foo% 的文章
+$posts = Post::whereHas('comments', function ($query) {
+$query-&gt;where('content', 'like', 'foo%');
+})-&gt;get();</p> <p>// 预加载
+$books = App\Book::with('author')-&gt;get();
+$books = App\Book::with('author', 'publisher')-&gt;get();
+$books = App\Book::with('author.contacts')-&gt;get();</p> <p>// 延迟预加载
+$books-&gt;load('author', 'publisher');</p> <p>// 写入关联模型
+$comment = new App\Comment(['message' =&gt; 'A new comment.']);
+$post-&gt;comments()-&gt;save($comment);
+// Save 与多对多关联
+$post-&gt;comments()-&gt;saveMany([
+new App\Comment(['message' =&gt; 'A new comment.']),
+new App\Comment(['message' =&gt; 'Another comment.']),
+]);
+$post-&gt;comments()-&gt;create(['message' =&gt; 'A new comment.']);</p> <p>// 更新「从属」关联
+$user-&gt;account()-&gt;associate($account);
+$user-&gt;save();
+$user-&gt;account()-&gt;dissociate();
+$user-&gt;save();</p> <p>// 附加多对多关系
+$user-&gt;roles()-&gt;attach($roleId);
+$user-&gt;roles()-&gt;attach($roleId, ['expires' =&gt; $expires]);
+// 从用户上移除单一身份...
+$user-&gt;roles()-&gt;detach($roleId);
+// 从用户上移除所有身份...
+$user-&gt;roles()-&gt;detach();
+$user-&gt;roles()-&gt;detach([1, 2, 3]);
+$user-&gt;roles()-&gt;attach([1 =&gt; ['expires' =&gt; $expires], 2, 3]);</p> <p>// 任何不在给定数组中的 IDs 将会从中介表中被删除。
+$user-&gt;roles()-&gt;sync([1, 2, 3]);
+// 你也可以传递中介表上该 IDs 额外的值：
+$user-&gt;roles()-&gt;sync([1 =&gt; ['expires' =&gt; true], 2, 3]);
+事件
+Model::retrieved(function($model){});
+Model::creating(function($model){});
+Model::created(function($model){});
+Model::updating(function($model){});
+Model::updated(function($model){});
+Model::saving(function($model){});
+Model::saved(function($model){});
+Model::deleting(function($model){});
+Model::deleted(function($model){});
+Model::restoring(function($model){});
+Model::restored(function($model){});
+Model::observe(new FooObserver);
+Eloquent 配置信息
+// 关闭模型插入或更新操作引发的 「mass assignment」异常
+Eloquent::unguard();
+// 重新开启「mass assignment」异常抛出功能
+Eloquent::reguard()</p></div></div><div class="global-ui"></div></div>
+    <script src="/vuepress/assets/js/app.56c087e0.js" defer></script><script src="/vuepress/assets/js/6.7538206a.js" defer></script><script src="/vuepress/assets/js/13.22bf57bc.js" defer></script>
+  </body>
+</html>
