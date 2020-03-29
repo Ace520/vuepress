@@ -41,7 +41,7 @@ export default {
   align-items: center;
   flex-direction: column;
   padding: 5rem 0;
-  background-color: #81e6d9;
+  background-color: #282c34;
   color: #ffffff;
 }
 .jumbotron .title {

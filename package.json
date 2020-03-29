@@ -8,5 +8,8 @@
   },
   "resolutions": {
     "webpack-dev-middleware": "3.6.0"
+  },
+  "devDependencies": {
+    "vuepress-plugin-container": "^2.1.2"
   }
 }

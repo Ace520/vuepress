@@ -11,8 +11,8 @@ export default {
       let Minigrid = module.default;
       var grid = new Minigrid({
         container: ".content__default",
-        item: ".extra-class",
-        gutter: 2
+        item: ".card",
+        gutter: 8
       });
       grid.mount();
     });
@@ -20,6 +20,11 @@ export default {
 };
 </script>
 <style >
+html,
+body {
+  background-color: #282c34;
+  color: #ffffff;
+}
 .content__default {
   margin: 0 auto;
 }
@@ -27,34 +32,44 @@ export default {
   text-align: center;
   padding-bottom: 1rem;
 }
-.extra-class {
-  width: 100%;
+.card {
+  width: 95%;
+}
+.card .card-box {
+  border: 1px solid #eaecef;
+  border-radius: 5px;
+  width: 98%;
+  margin: auto;
+  padding: 0.3rem;
+}
+pre[class*="language-"] {
+  padding: 0;
 }
 /* Small (sm) */
 @media (min-width: 640px) {
-.extra-class {
-  width: 100%;
-}
+  .card {
+    width: 95%;
+  }
 }
 
 /* Medium (md) */
 @media (min-width: 768px) {
-.extra-class {
-  width: 50%;
-}
+  .card {
+    width: 49%;
+  }
 }
 
 /* Large (lg) */
 @media (min-width: 1024px) {
-.extra-class {
-  width: 33%;
-}
+  .card {
+    width: 32%;
+  }
 }
 
 /* Extra Large (xl) */
 @media (min-width: 1280px) {
-.extra-class {
-  width: 33%;
-}
+  .card {
+    width: 32%;
+  }
 }
 </style>
