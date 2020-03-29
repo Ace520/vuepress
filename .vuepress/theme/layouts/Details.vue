@@ -21,6 +21,9 @@ export default {
 </script>
 
 <style>
+.theme-container{
+  margin-bottom: 7rem;
+}
 html,
 body {
   background-color: #282c34!important;
@@ -31,7 +34,7 @@ body {
 }
 .content__default h2 {
   text-align: center;
-  padding-bottom: 1rem;
+  padding-bottom: 1.2rem;
 }
 .card {
   width: 95%;

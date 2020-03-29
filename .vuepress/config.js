@@ -14,5 +14,8 @@ module.exports = {
         after: '</div></div>',
       },
     ],
-  ]
+  ],
+  markdown: {
+    anchor: { permalink: false }
+  }
 }

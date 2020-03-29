@@ -36,6 +36,9 @@ export default {
 };
 </script>
 <style>
+.theme-container{
+  margin-bottom: 7rem;
+}
 html,
 body {
   background-color: #282c34!important;
@@ -65,6 +68,7 @@ body {
 .container h2 {
   text-align: center;
   margin-top: 2rem;
+  padding-bottom: 1.2rem;
 }
 .container ul {
   display: flex;
