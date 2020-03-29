@@ -1,6 +1,8 @@
 module.exports = {
-    themeConfig: {
-      smoothScroll: true
-    },
-    base:'vuepress'
-  }
+  base: '/vuepress/',
+  title: 'vuepress',
+  description: 'vuepress',
+  themeConfig: {
+    smoothScroll: true
+  },
+}
