@@ -1,7 +1,7 @@
 ---
 layout: Details
 ---
-PHP 函数
+PHP 函数速查表
 -
 ::: card 数组
 - [array_change_key_case](http://php.p2hp.com/manual/zh/function.array-change-key-case.php) - 更改数组中所有键的大小写
