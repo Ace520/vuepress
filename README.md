@@ -13,4 +13,6 @@ PHP
 
 开发语言
 -
+- ![Logo](./assets/logo/bash.png)[Bash 速查表](languages/bash.html)
+- ![Logo](./assets/logo/redis.png)[PHPRedis 速查表](languages/phpredis.html)
 - ![Logo](./assets/logo/vim.png)[Vim 命令大全](languages/vim.html)
