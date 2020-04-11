@@ -10,6 +10,7 @@ PHP
 前端
 -
 - ![Logo](./assets/logo/vue.png)[Vue.js 开源项目](web/vueprojects.html)
+- ![Logo](./assets/logo/tailwindcss.png)[Tailwind CSS 布局速查表](web/tailwindcss.html)
 
 开发语言
 -
