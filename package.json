@@ -1,0 +1,24 @@
+{
+  "name": "ACE-BLOG",
+  "version": "0.0.1",
+  "main": "index.js",
+  "repository": "https://github.com/Ace520/blog.git",
+  "author": "Ace <ace963ace@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vuepress dev .",
+    "build": "vuepress build ."
+  },
+  "devDependencies": {
+    "@vuepress/plugin-back-to-top": "^1.4.1",
+    "@vuepress/plugin-blog": "^1.9.2",
+    "@vuepress/plugin-nprogress": "^1.4.1",
+    "vuepress": "^1.0.0-rc.1",
+    "vuepress-plugin-medium-zoom": "^1.1.8",
+    "vuepress-plugin-smooth-scroll": "0.0.9"
+  },
+  "dependencies": {
+    "masonry-layout": "^4.2.2",
+    "vue-cute-timeline": "^1.2.8"
+  }
+}

@@ -1,0 +1,149 @@
+html, body {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 16px;
+    color: $textColor;
+    background-color: $bgColor;
+}
+
+.container {
+    width: 100%;
+}
+
+.card {
+    width: 100%;
+}
+
+@media (min-width: $smMedia) {
+    .container {
+        max-width: $smMedia;
+    }
+
+    .card {
+        width: 100%;
+    }
+}
+
+@media (min-width: $mdMedia) {
+    .container {
+        max-width: $mdMedia;
+    }
+
+    .card {
+        width: 384px;
+    }
+}
+
+@media (min-width: $lgMedia) {
+    .container {
+        max-width: $lgMedia;
+    }
+
+    .card {
+        width: 341px;
+    }
+}
+
+@media (min-width: $xlMedia) {
+    .container {
+        max-width: $xlMedia;
+    }
+
+    .card {
+        width: 426px;
+    }
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-none {
+    flex: none;
+}
+
+.flex-1 {
+    flex: 1;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.w-full {
+    width: 100%;
+}
+
+.w-screen {
+    width: 100vw;
+}
+
+.h-full {
+    height: 100%;
+}
+
+.h-screen {
+    height: 100vh;
+}
+
+.mx-auto {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.flash-container:hover {
+    position: relative;
+    overflow: hidden;
+
+    &::after {
+        content: '';
+        height: 150%;
+        width: 25px;
+        background: #fff;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        opacity: 0.6;
+        filter: blur(6px);
+        animation: move 1s infinite ease-out;
+    }
+}
+
+@keyframes move {
+    0% {
+        transform: translate(-200px, -200px) rotate(45deg);
+    }
+
+    100% {
+        transform: translate(200px, 200px) rotate(45deg);
+    }
+}
