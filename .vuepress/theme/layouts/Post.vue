@@ -10,11 +10,11 @@
           <Comment />
         </div>
       </div>
-      <div class="flex-none side">
-        <div class="topic media-show">
+      <div class="flex-none side media-show">
+        <div class="topic">
           <Topic />
         </div>
-        <div class="toc media-show">
+        <div class="toc">
           <Toc />
         </div>
       </div>
@@ -37,10 +37,10 @@ export default {
 .article {
   .side {
     padding-left: 1rem;
+    width: 18rem;
   }
 
   .toc {
-    width: 14.5rem;
     position: sticky;
     position: -webkit-sticky;
     max-height: 100vh;
