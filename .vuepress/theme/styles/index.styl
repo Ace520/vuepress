@@ -1,6 +1,12 @@
+@require './code.styl';
+
 html, body {
     padding: 0;
     margin: 0;
+    scrollbar-face-color: $primaryColor;
+    scrollbar-shadow-color: #eeeeee;
+    scrollbar-3dlight-color: #eeeeee;
+    scrollbar-arrow-color: #000;
 }
 
 body {
@@ -12,12 +18,72 @@ body {
     background-color: $bgColor;
 }
 
+/* 滚动条 */
+::-webkit-scrollbar-thumb:horizontal { /* 水平滚动条的样式 */
+    width: 5px;
+    background-color: $primaryColor;
+    -webkit-border-radius: 3px;
+}
+
+::-webkit-scrollbar-track-piece {
+    -webkit-border-radius: 0; /* 滚动条的圆角宽度 */
+}
+
+::-webkit-scrollbar {
+    width: 5px; /* 滚动条的宽度 */
+    height: 5px; /* 滚动条的高度 */
+}
+
+::-webkit-scrollbar-thumb:vertical { /* 垂直滚动条的样式 */
+    height: 5px;
+    background-color: $primaryColor;
+    -webkit-border-radius: 3px;
+    outline: 2px solid #fff;
+    outline-offset: -2px;
+}
+
+::-webkit-scrollbar-thumb:hover { /* 滚动条的hover样式 */
+    height: 5px;
+    background-color: $primaryColor;
+    -webkit-border-radius: 3px;
+}
+
 .container {
     width: 100%;
 }
 
+.container-content {
+    padding-top: 1rem;
+    margin-bottom: 3rem;
+}
+
+a {
+    font-weight: 500;
+    color: $textColor;
+    text-decoration: none;
+
+    &:hover {
+        color: darken($textColor, 20%);
+    }
+}
+
 .card {
     width: 100%;
+
+    .card-box {
+        padding: 0.3rem;
+
+        .card-content {
+            background-color: $codeBgColor;
+            border-radius: 6px;
+
+            .title {
+                padding: 0.8rem 1rem;
+                color: #fff;
+                border-bottom: 1px solid #708090;
+            }
+        }
+    }
 }
 
 @media (min-width: $smMedia) {
@@ -146,4 +212,16 @@ body {
     100% {
         transform: translate(200px, 200px) rotate(45deg);
     }
+}
+
+.timeline-title {
+    margin: 0.8rem 0 0.3rem 1.7rem !important;
+    font-weight: blod;
+    padding-top: 0.25rem
+}
+
+.timeline-item {
+    margin: 0.5rem 0 0.5rem 1.77rem !important;
+    padding-bottom: 0 !important;
+    font-size: 14px;
 }

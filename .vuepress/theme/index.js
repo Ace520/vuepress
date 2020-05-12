@@ -46,7 +46,20 @@ module.exports = {
             perPagePosts: 3
           }
         },
-      ]
+      ],
+      sitemap: {
+        hostname: 'https://ace520.github.io/vuepress'
+      },
+      comment: {
+        service: 'vssue',
+        owner: 'You',
+        repo: 'Your repo',
+        clientId: 'Your clientId',
+        clientSecret: 'Your clientSecret',
+      },
+      feed: {
+        canonical_base: 'https://ace520.github.io/vuepress'
+      },
     }],
     ['@vuepress/back-to-top'],
     ['@vuepress/last-updated'],
@@ -63,16 +76,8 @@ module.exports = {
     ['vuepress-plugin-smooth-scroll'],
     ['vuepress-plugin-container', {
       type: 'card',
-      before: info => `<div class="card"><div class="card-box"><p class="title">${info}</p>`,
-      after: '</div></div>',
+      before: info => `<div class="card"><div class="card-box"><div class="card-content"><div class="title">${info}</div>`,
+      after: '</div></div></div>',
     }],
   ],
-  markdown: {
-    anchor: { permalink: false },
-    toc: { includeLevel: [1, 2] },
-    extendMarkdown: md => {
-      // 使用更多的 markdown-it 插件!
-      // md.use(require('markdown-it-xxx'))
-    }
-  }
 }

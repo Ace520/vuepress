@@ -12,7 +12,7 @@
         </div>   
       </div>
     </header>
-    <div class="flex-1">
+    <div class="flex-1 container-content">
       <DefaultGlobalLayout/>
     </div>
     <footer class="footer flex-none">
@@ -36,10 +36,16 @@
   }
   .header{
     height: 4rem;
-    background:$headerBg
-    
+    background: $headerBg;
+
+    a {
+      color: $headerTextColor;
+      margin-left: 1rem;
+    }
+
     .title{
-      color:$headerTextColor;
+      font-size: 22px;
+      color:$primaryColor;
       text-align: center;
       text-shadow: 0 0 0.1em, 0 0 0.3em;
     }

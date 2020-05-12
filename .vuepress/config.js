@@ -11,13 +11,6 @@ module.exports = {
       { text: '关于', link: '/about' },
     ],
     dateFormat: 'YYYY-MM-DD',
-    comment: {
-      service: 'vssue',
-      owner: 'You',
-      repo: 'Your repo',
-      clientId: 'Your clientId',
-      clientSecret: 'Your clientSecret',
-    },
     pwa: {
       serviceWorker: true,
       updatePopup: true
@@ -25,4 +18,12 @@ module.exports = {
     paginationComponent: 'Pagination',
     smoothScroll: true
   },
+  markdown: {
+    anchor: { permalink: false },
+    toc: { includeLevel: [1, 2] },
+    extendMarkdown: md => {
+      // 使用更多的 markdown-it 插件!
+      // md.use(require('markdown-it-xxx'))
+    }
+  }
 }
