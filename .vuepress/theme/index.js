@@ -29,6 +29,8 @@ module.exports = {
           keys: ['tag', 'tags'],
           path: '/tag/',
           frontmatter: { title: '标签' },
+          layout: 'Tag',
+          itemlayout: 'Tag',
           pagination: {
             perPagePosts: 3
           }
@@ -38,6 +40,8 @@ module.exports = {
           keys: ['topic', 'topics'],
           path: '/topic/',
           frontmatter: { title: '话题' },
+          layout: 'Topic',
+          itemlayout: 'Topic',
           pagination: {
             perPagePosts: 3
           }

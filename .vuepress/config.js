@@ -6,7 +6,7 @@ module.exports = {
       { text: '博文', link: '/post/' },
       { text: '速查表', link: '/cheatsheet/' },
       { text: '时间轴', link: '/timeline' },
-      { text: '关于', link: '/about' },
+      // { text: '关于', link: '/about' },
     ],
     dateFormat: 'YYYY-MM-DD',
     comment: {

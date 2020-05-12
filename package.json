@@ -1,7 +1,6 @@
 {
-  "name": "ACE-BLOG",
+  "name": "vuepress",
   "version": "0.0.1",
-  "main": "index.js",
   "repository": "https://github.com/Ace520/blog.git",
   "author": "Ace <ace963ace@gmail.com>",
   "license": "MIT",
