@@ -5,7 +5,7 @@
         <router-link class="title" to="/">
           {{ $site.title }}
         </router-link>   
-        <div>
+        <div class="nav">
           <router-link v-for="(item, index) in $themeConfig.nav" :key="index" :to="item.link">
             {{ item.text }}
           </router-link>   
@@ -38,10 +38,13 @@
     height: 4rem;
     background: $headerBg;
 
-    a {
-      color: $headerTextColor;
-      margin-left: 1rem;
-    }
+    .nav{
+        a {
+          color: $headerTextColor;
+          margin-left: 1rem;
+        }
+      }
+  
 
     .title{
       font-size: 22px;

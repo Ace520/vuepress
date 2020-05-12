@@ -52,10 +52,10 @@ module.exports = {
       },
       comment: {
         service: 'vssue',
-        owner: 'You',
-        repo: 'Your repo',
-        clientId: 'Your clientId',
-        clientSecret: 'Your clientSecret',
+        owner: 'Ace520',
+        repo: 'Ace Blog',
+        clientId: 'Iv1.535c99f0a882ed45',
+        clientSecret: '6ec379adea91d41358679a159e6688a258dff8a9',
       },
       feed: {
         canonical_base: 'https://ace520.github.io/vuepress'
