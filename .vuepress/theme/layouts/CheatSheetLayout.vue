@@ -2,13 +2,15 @@
   <div class="container mx-auto cheatsheet">
     <div class="grid grid-cols gap">
       <div class="item" v-for="(item, index) in $pagination.pages" :key="index">
-        <div>
-          <div class="img flash-container" ></div>
-          <div>
+        <div class="card">
+          <div class="card_content" style="padding:0">
+            <div class="img flash-container"></div>
+          </div>
+          <div class="item-title">
             <router-link class="page-link" :to="item.path">{{ item.title }}</router-link>
           </div>
         </div>
-      </div>s
+      </div>
     </div>
     <div id="pagination">
       <Pagination />
@@ -37,7 +39,7 @@ export default {
 }
 
 .grid-cols {
-  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-template-columns: repeat(7, minmax(0, 1fr));
 }
 
 .gap {
@@ -48,16 +50,19 @@ export default {
 .cheatsheet {
   .item {
     .img {
-      background: url('../../../static/vue.jpg')
+      background: url('../../../static/vue.jpg');
       background-size: cover;
       background-position: center;
       height: 12rem;
-      width: 10rem;
+      width: 100%;
       margin-right: 1rem;
       border-radius: 4px;
     }
+
+    .item-title {
+      border-top: 1px solid #ebeef5;
+      padding: 1rem;
+    }
   }
 }
-
-
 </style>

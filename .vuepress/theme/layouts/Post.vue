@@ -2,12 +2,20 @@
   <div class="container mx-auto">
     <div class="article flex">
       <div class="content flex-1">
-        <div class="content-header">
-          <h1>{{$frontmatter.title}}</h1>
+        <div class="card mb-4">
+          <div class="card_content">
+            <div class="content-header">
+              <h1>{{$frontmatter.title}}</h1>
+            </div>
+            <Content />
+          </div>
         </div>
-        <Content />
-        <div class="comment">
-          <Comment />
+        <div class="card mb-4">
+          <div class="card_content">
+            <div class="comment">
+              <Comment />
+            </div>
+          </div>
         </div>
       </div>
       <div class="flex-none side media-show">
@@ -36,8 +44,8 @@ export default {
 <style lang="stylus" scoped>
 .article {
   .side {
-    padding-left: 1rem;
-    width: 18rem;
+    padding-left: 0.8rem;
+    width: 19rem;
   }
 
   .toc {

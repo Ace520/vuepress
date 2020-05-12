@@ -2,24 +2,32 @@
   <div class="container mx-auto posts">
     <div class="flex">
       <div class="flex-1">
-        <div class="posts-item flex" v-for="(item, index) in $pagination.pages" :key="index">
-          <div class="img flex-none flash-container"></div>
-          <div class="flex-1">
-            <router-link class="page-link" :to="item.path">{{ item.title }}</router-link>
+        <div class="card mb-4" v-for="(item, index) in $pagination.pages" :key="index">
+          <div class="card_content posts-item flex">
+            <div class="img flex-none flash-container"></div>
+            <div class="flex-1">
+              <router-link class="page-link" :to="item.path">{{ item.title }}</router-link>
+            </div>
           </div>
         </div>
       </div>
       <div class="flex-none side-nav">
-        <ul id="default-layout">
-          <li v-for="(item,index) in $topic.list" :key="index">
-            <router-link class="page-link" :to="item.path">{{ item.name }}</router-link>
-          </li>
-        </ul>
-        <ul id="default-layout">
-          <li v-for="tag in $tag.list">
-            <router-link class="page-link" :to="tag.path">{{ tag.name }}</router-link>
-          </li>
-        </ul>
+        <div class="card mb-4">
+          <div class="card-title">话题</div>
+          <div class="card_content">
+            <li v-for="(item,index) in $topic.list" :key="index">
+              <router-link class="page-link" :to="item.path">{{ item.name }}</router-link>
+            </li>
+          </div>
+        </div>
+        <div class="card mb-4">
+          <div class="card-title">标签</div>
+          <div class="card_content">
+            <li v-for="tag in $tag.list">
+              <router-link class="page-link" :to="tag.path">{{ tag.name }}</router-link>
+            </li>
+          </div>
+        </div>
       </div>
     </div>
     <div id="pagination">
@@ -38,13 +46,11 @@ export default {
 </script>
 <style lang="stylus" scoped>
 .side-nav {
-  width: 18rem;
+  padding-left: 0.8rem;
+  width: 19rem;
 }
 
 .posts-item {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-
   .img {
     background: url('https://cdn.pixabay.com/photo/2020/04/28/18/15/landscape-5105731_1280.jpg');
     background-size: cover;

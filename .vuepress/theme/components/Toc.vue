@@ -1,6 +1,6 @@
 <template>
   <div v-if="$page.headers" class="card mb-4">
-    <div class="card_content ">
+    <div class="card_content">
       <div v-for="(item, index) in $page.headers" :key="index">
         <a :href="`#${item.slug}`" :title="item.title">{{ item.title }}</a>
       </div>
@@ -11,8 +11,7 @@
 <script>
 import Vue from "vue";
 export default {
-  components: {},
+  components: {}
 };
 </script>
-<style lang="stylus" scoped>
-</style>
+<style lang="stylus" scoped></style>

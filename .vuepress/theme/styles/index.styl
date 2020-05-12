@@ -227,13 +227,19 @@ a {
 }
 
 .card {
-    border: 1px solid $primaryColor;
     border-radius: 4px;
     width: 99%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05), 0 0 1px rgba(0, 0, 0, 0.1);
+    -webkit-transition: all 0.6s;
+    transition: all 0.6s;
+}
+
+.card&:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .card-title {
-    border-bottom: 1px solid $primaryColor;
+    border-bottom: 1px solid #ebeef5;
     padding: 1rem;
 }
 
