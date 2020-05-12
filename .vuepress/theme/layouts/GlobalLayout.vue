@@ -19,7 +19,7 @@
       <div class="container mx-auto h-full flex items-center justify-center">
         <a href="https://github.com/ulivz/70-lines-of-vuepress-blog-theme">Github</a> · Powered by VuePress</p>
       </div>
-</footer>
+    </footer>
   </div>
 </template>
 

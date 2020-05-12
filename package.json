@@ -14,7 +14,8 @@
     "@vuepress/plugin-nprogress": "^1.4.1",
     "vuepress": "^1.0.0-rc.1",
     "vuepress-plugin-medium-zoom": "^1.1.8",
-    "vuepress-plugin-smooth-scroll": "0.0.9"
+    "vuepress-plugin-smooth-scroll": "0.0.9",
+    "vuepress-plugin-social-share": "^0.2.1"
   },
   "dependencies": {
     "masonry-layout": "^4.2.2",

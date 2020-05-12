@@ -76,8 +76,18 @@ module.exports = {
     ['vuepress-plugin-smooth-scroll'],
     ['vuepress-plugin-container', {
       type: 'card',
-      before: info => `<div class="card"><div class="card-box"><div class="card-content"><div class="title">${info}</div>`,
+      before: info => `<div class="masonry-card"><div class="masonry-card-box"><div class="masonry-card-content"><div class="title">${info}</div>`,
       after: '</div></div></div>',
+    }],
+    ['social-share', {
+      // networks: ['twitter', 'facebook', 'reddit', 'telegram'],
+      // twitterUser: 'ntnyq',
+      // weiboAppKey: 'your_app_key',
+      // fallbackImage: '/hero.png',
+      // autoQuote: true,
+      // isPlain: false,
+      // extendsNetworks,
+      noGlobalSocialShare: true
     }],
   ],
 }
