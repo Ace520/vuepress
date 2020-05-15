@@ -44,7 +44,7 @@ export default {
 <style lang="stylus" scoped>
 .article {
   .side {
-    padding-left: 0.8rem;
+    padding-left: 0.6rem;
     width: 19rem;
   }
 

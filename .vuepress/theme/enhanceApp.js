@@ -1,3 +1,4 @@
+import './fonts/iconfont.css'
 export default ({
     Vue, // VuePress 正在使用的 Vue 构造函数
     options, // 附加到根实例的一些选项

@@ -4,9 +4,20 @@
       <div class="flex-1">
         <div class="card mb-4" v-for="(item, index) in $pagination.pages" :key="index">
           <div class="card_content posts-item flex">
-            <div class="img flex-none flash-container"></div>
+            <div class="img flex-none flash-container">
+              <img :src="item.frontmatter.img" />
+            </div>
             <div class="flex-1">
-              <router-link class="page-link" :to="item.path">{{ item.title }}</router-link>
+              <router-link class="link" :to="item.path">{{ item.title }}</router-link>
+              <div class="desc">12312</div>
+              <div class="flex align-center"
+                <i class="iconfont icon-huati" />
+                {{item.frontmatter.topic}}
+                <i class="iconfont icon-biaoqian-" />
+                {{item.frontmatter.tags}}
+                <i class="iconfont icon-time_" />
+                {{item.frontmatter.date}}
+              </div>
             </div>
           </div>
         </div>
@@ -15,17 +26,25 @@
         <div class="card mb-4">
           <div class="card-title">话题</div>
           <div class="card_content">
-            <li v-for="(item,index) in $topic.list" :key="index">
-              <router-link class="page-link" :to="item.path">{{ item.name }}</router-link>
-            </li>
+            <div
+              class="flex align-center justify-between"
+              v-for="(item,index) in $topic.list"
+              :key="index"
+            >
+              <router-link class="link" :to="item.path">{{ item.name }}</router-link>
+              <div>{{item.pages.length}}</div>
+            </div>
           </div>
         </div>
         <div class="card mb-4">
           <div class="card-title">标签</div>
-          <div class="card_content">
-            <li v-for="tag in $tag.list">
-              <router-link class="page-link" :to="tag.path">{{ tag.name }}</router-link>
-            </li>
+          <div class="card_content tag_card_content">
+            <router-link
+              class="tag-item"
+              v-for="(item,index) in $tag.list"
+              :key="index"
+              :to="item.path"
+            >{{ item.name }}</router-link>
           </div>
         </div>
       </div>
@@ -41,6 +60,9 @@ import { Pagination } from "@vuepress/plugin-blog/lib/client/components";
 export default {
   components: {
     Pagination
+  },
+  created() {
+    console.log(this);
   }
 };
 </script>
@@ -51,14 +73,51 @@ export default {
 }
 
 .posts-item {
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+
   .img {
-    background: url('https://cdn.pixabay.com/photo/2020/04/28/18/15/landscape-5105731_1280.jpg');
-    background-size: cover;
-    background-position: center;
     height: 10rem;
-    width: 10rem;
+    width: 15rem;
     margin-right: 1rem;
-    border-radius: 4px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      border-radius: 4px;
+      vertical-align: middle;
+    }
   }
+
+  .desc {
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.54);
+    font-weight: 200;
+    line-height: 1.7;
+    display: -webkit-box;
+    word-break: break-all;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.tag-item {
+  position: relative;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 13px 15px rgba(0, 0, 0, 0.1);
+  color: #738192;
+  background-color: #fff;
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
+  padding: 0.3rem 0.8rem;
+  margin: 0.5rem;
+}
+
+.tag_card_content {
+  padding: 1rem 0.5rem;
 }
 </style>

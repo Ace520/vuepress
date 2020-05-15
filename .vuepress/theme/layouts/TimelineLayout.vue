@@ -13,7 +13,6 @@
 
 <script>
 import Vue from "vue";
-import dayjs from "dayjs";
 import { Timeline, TimelineItem, TimelineTitle } from "vue-cute-timeline";
 const theme = "red";
 export default {
