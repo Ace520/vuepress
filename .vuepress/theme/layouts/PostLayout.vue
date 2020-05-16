@@ -76,7 +76,6 @@ export default {
     Pagination
   },
   created() {
-    console.log(this);
   }
 };
 </script>

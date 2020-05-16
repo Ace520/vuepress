@@ -20,7 +20,6 @@ import Vue from "vue";
 export default {
   components: {},
   created() {
-    console.log(this);
   }
 };
 </script>
