@@ -1,29 +1,33 @@
 <template>
   <div class="container mx-auto timeline">
     <timeline>
-      <div v-for="(item, index) in items" :key="index">
-        <timeline-title v-if="item.type === 'date'">{{item.title}}</timeline-title>
-        <timeline-item v-else>
-          <router-link :to="item.path">{{ item.title }}</router-link>
-        </timeline-item>
-      </div>
+      <timeline-item v-for="(item, index) in items" :key="index">
+        <div class="tl-title">{{item.date}}</div>
+        <div class="flex items-center tl-items" v-for="(item1, index1) in item.pages" :key="index1">
+          <div class="tl-type">{{types[item1.id]}}</div>
+          <router-link class="link" :to="item1.path">{{ item1.title }}</router-link>
+        </div>
+      </timeline-item>
     </timeline>
   </div>
 </template>
 
 <script>
 import Vue from "vue";
-import { Timeline, TimelineItem, TimelineTitle } from "vue-cute-timeline";
+import { Timeline, TimelineItem } from "vue-cute-timeline";
 const theme = "red";
 export default {
   components: {
     Timeline,
-    TimelineItem,
-    TimelineTitle
+    TimelineItem
   },
   data() {
     return {
-      items: []
+      items: [],
+      types: {
+        post: "博文",
+        cheatsheet: "速查表"
+      }
     };
   },
 
@@ -39,9 +43,9 @@ export default {
       let val1 = obj1.index;
       let val2 = obj2.index;
       if (val1 < val2) {
-        return -1;
-      } else if (val1 > val2) {
         return 1;
+      } else if (val1 > val2) {
+        return -1;
       } else {
         return 0;
       }
@@ -50,21 +54,61 @@ export default {
     let items = [];
     let dateArr = [];
     itemsSort.forEach(item => {
-      if (dateArr.indexOf(item.frontmatter.date) == -1) {
-        items.push({ type: "date", title: item.frontmatter.date });
-        dateArr.push(item.frontmatter.date);
+      if (!items[item.frontmatter.date]) {
+        items[item.frontmatter.date] = {
+          date: item.frontmatter.date,
+          pages: []
+        };
       }
-      item.type = "post";
-      items.push(item);
+      items[item.frontmatter.date]["pages"].push(item);
     });
-    this.items = items;
+    this.items = Object.values(items);
   },
   methods: {}
 };
 </script>
 <style lang="stylus" scoped>
 .timeline {
-  max-width: 900px;
-  margin 0 auto
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.tl-title {
+  font-weight: blod;
+  font-size: 18px;
+  border-bottom: 1px solid #ebeef5;
+  padding-bottom: 1rem;
+  position: relative;
+  color: #8492a6;
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
+  font-weight: 500;
+}
+
+.tl-items {
+  margin: 1rem 0;
+
+  .tl-type {
+    box-sizing: border-box;
+    font-variant: tabular-nums;
+    list-style: none;
+    font-feature-settings: 'tnum';
+    display: inline-block;
+    height: 22px;
+    margin: 0 8px 0 0;
+    padding: 0 7px;
+    font-size: 12px;
+    line-height: 20px;
+    white-space: nowrap;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    cursor: pointer;
+    opacity: 1;
+    -webkit-transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+    transition: all 0.3s cubic-bezier(0.215, 0.61, 0.355, 1);
+    color: #6690b8;
+    background: #e9f3f7;
+    border-color: #d1d9de;
+  }
 }
 </style>

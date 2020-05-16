@@ -29,8 +29,8 @@ module.exports = {
           keys: ['tag', 'tags'],
           path: '/tag/',
           frontmatter: { title: '标签' },
-          layout: 'Tag',
-          itemlayout: 'Tag',
+          layout: 'PostLayout',
+          itemlayout: 'Post',
           pagination: {
             perPagePosts: 3
           }
@@ -40,11 +40,19 @@ module.exports = {
           keys: ['topic', 'topics'],
           path: '/topic/',
           frontmatter: { title: '话题' },
-          layout: 'Topic',
-          itemlayout: 'Topic',
+          layout: 'PostLayout',
+          itemlayout: 'Post',
           pagination: {
             perPagePosts: 3
           }
+        },
+        {
+          id: "category",
+          keys: ['category'],
+          path: '/category/',
+          frontmatter: { title: '分类' },
+          layout: 'CheatSheetLayout',
+          itemlayout: 'CheatSheet',
         },
       ],
       sitemap: {
@@ -90,4 +98,16 @@ module.exports = {
       noGlobalSocialShare: true
     }],
   ],
+  extendPageData(pageCtx) {
+    const strippedContent = pageCtx._strippedContent
+    if (!strippedContent) {
+      return
+    }
+    pageCtx.summary =
+      strippedContent
+        .trim()
+        .replace(/^#+\s+(.*)/, '')
+        .slice(0, 200)
+    pageCtx.frontmatter.description = pageCtx.summary
+  },
 }

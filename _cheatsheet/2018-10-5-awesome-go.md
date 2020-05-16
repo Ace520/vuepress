@@ -1,6 +1,7 @@
 ---
 title: Go 资源大全
 date: 2018-10-5
+category: go
 ---
 
 ::: card 音频和音乐

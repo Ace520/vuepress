@@ -1,6 +1,6 @@
 <template>
   <div class="container mx-auto">
-    <div class="grids">
+    <div class="masonry-cards">
       <Content />
     </div>
     <div class="toc">
@@ -16,8 +16,8 @@ export default {
     Toc
   },
   mounted() {
-    var msnry = new Masonry(document.querySelector(".grids"), {
-      itemSelector: ".card",
+    var msnry = new Masonry(document.querySelector(".masonry-cards"), {
+      itemSelector: ".masonry-card",
       columnWidth: 0
     });
   }
@@ -26,8 +26,7 @@ export default {
 <style lang="stylus" scoped>
 .toc {
   width: 13.5rem;
-  height: 100vh;
-  overflow-y: auto;
+  
   top: 0;
   box-sizing: border-box;
   z-index: 10;

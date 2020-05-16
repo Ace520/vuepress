@@ -1,4 +1,5 @@
 @require './code.styl';
+
 html, body {
     padding: 0;
     margin: 0;
@@ -11,86 +12,6 @@ html, body {
 * {
     -webkit-overflow-scrolling: touch;
     -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-}
-
-html, body, h1, h2, h3, h4, h5, h6, div, dl, dt, dd, ul, ol, li, p, blockquote, pre, hr, figure, table, caption, th, td, form, fieldset, legend, input, button, textarea, menu {
-    margin: 0;
-    padding: 0;
-}
-
-header, footer, section, article, aside, nav, hgroup, address, figure, figcaption, menu, details {
-    display: block;
-}
-img{
-    vertical-align: baseline;
-}
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
-}
-
-caption, th {
-    text-align: left;
-    font-weight: normal;
-}
-
-html, body, fieldset, img, iframe, abbr {
-    border: 0;
-}
-
-i, cite, em, var, address, dfn {
-    font-style: normal;
-}
-
-[hidefocus], summary {
-    outline: 0;
-}
-
-li {
-    list-style: none;
-}
-
-h1, h2, h3, h4, h5, h6, small {
-    font-size: 100%;
-}
-
-sup, sub {
-    font-size: 83%;
-}
-
-pre, code, kbd, samp {
-    font-family: inherit;
-}
-
-q:before, q:after {
-    content: none;
-}
-
-textarea {
-    overflow: auto;
-    resize: none;
-}
-
-label, summary {
-    cursor: default;
-}
-
-a, button {
-    cursor: pointer;
-}
-
-h1, h2, h3, h4, h5, h6, em, strong, b {
-    font-weight: bold;
-}
-
-del, ins, u, s, a, a:hover {
-    text-decoration: none;
-}
-
-body, textarea, input, button, select, keygen, legend {
-    font: 12px / 1.14 arial, \5 b8b \4 f53;
-    color: #333;
-    outline: 0;
 }
 
 body {
@@ -184,7 +105,7 @@ a {
     width: 100%;
 
     .masonry-card-box {
-        padding: 0 0.3rem;
+        padding: 0.3rem;
 
         .masonry-card-content {
             background-color: $codeBgColor;
@@ -195,6 +116,20 @@ a {
                 color: #fff;
                 border-bottom: 1px solid #708090;
             }
+
+            li {
+                color: #f8f8f2;
+                padding: 0.3rem 1rem;
+                text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+                font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+                font-size: 1em;
+                line-height: 1.5;
+
+                a {
+                    color: $primaryColor;
+                    text-decoration: underline;
+                }
+            }
         }
     }
 }
@@ -204,7 +139,7 @@ a {
         max-width: $smMedia;
     }
 
-    .card {
+    .masonry-card {
         width: 100%;
     }
 }
@@ -214,7 +149,7 @@ a {
         max-width: $mdMedia;
     }
 
-    .card {
+    .masonry-card {
         width: 384px;
     }
 }
@@ -224,7 +159,7 @@ a {
         max-width: $lgMedia;
     }
 
-    .card {
+    .masonry-card {
         width: 341px;
     }
 }
@@ -234,7 +169,7 @@ a {
         max-width: $xlMedia;
     }
 
-    .card {
+    .masonry-card {
         width: 426px;
     }
 }
@@ -327,18 +262,6 @@ a {
     }
 }
 
-.timeline-title {
-    margin: 0.8rem 0 0.3rem 1.7rem !important;
-    font-weight: blod;
-    padding-top: 0.25rem;
-    font-size: 18px;
-}
-
-.timeline-item {
-    margin: 0.5rem 0 0.5rem 1.77rem !important;
-    padding-bottom: 0 !important;
-}
-
 .card {
     border-radius: 4px;
     width: 100%;
@@ -353,11 +276,17 @@ a {
 
 .card-title {
     border-bottom: 1px solid #ebeef5;
-    padding: 1rem;
+    padding: 0.75rem 1rem;
+    position: relative;
+    margin-bottom: 1rem;
+    color: #8492a6;
+    -webkit-transition: 0.25s;
+    transition: 0.25s;
+    font-weight: 500;
 }
 
 .card_content {
-    padding: 1rem;
+    padding: 0 1rem;
 }
 
 .mb-2 {
@@ -388,4 +317,54 @@ a {
         text-decoration: underline;
         color: $primaryColor;
     }
+}
+
+.tag-item {
+    position: relative;
+    border: none;
+    border-radius: 8px;
+    color: #738192;
+    background-color: #fff;
+    -webkit-transition: 0.25s;
+    transition: 0.25s;
+    padding: 0.3rem 0.8rem;
+    margin-right: 0.5rem;
+    font-size: 13px;
+    box-shadow: 0 13px 15px rgba(0, 0, 0, 0.1);
+
+    &:hover {
+        box-shadow: 0 13px 15px rgba(0, 0, 0, 0.1);
+    }
+}
+
+.media-show {
+    display: none;
+}
+
+@media (min-width: $lgMedia) {
+    .media-show {
+        display: block;
+    }
+}
+
+.mb-3 {
+    margin-bottom: 0.75rem;
+}
+
+.pb-3 {
+    padding-bottom: 0.75rem;
+}
+
+.leading-8 {
+    line-height: 2rem;
+}
+
+.text-sm {
+    font-size: 0.875rem;
+}
+
+.truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }

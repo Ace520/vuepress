@@ -59,16 +59,6 @@ export default {
   }
 }
 
-.media-show {
-  display: none;
-}
-
-@media (min-width: $lgMedia) {
-  .media-show {
-    display: block;
-  }
-}
-
 .comment {
   margin-top: 2rem;
 }

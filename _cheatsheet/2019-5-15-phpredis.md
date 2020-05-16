@@ -1,6 +1,7 @@
 ---
 title: PHPRedis 速查表
 date: 2019-5-15
+category: php
 ---
 
 ::: card Redis 连接与认证

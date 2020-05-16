@@ -1,6 +1,7 @@
 ---
 title: ThinkPHP 速查表 5.1.5
 date: 2020-2-6
+category: php
 ---
 ::: card App
 ``` php 

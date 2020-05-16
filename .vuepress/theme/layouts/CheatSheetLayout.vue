@@ -1,45 +1,32 @@
 <template>
   <div class="container mx-auto cheatsheet">
-    <div class="grid grid-cols gap">
-      <div class="item" v-for="(item, index) in $pagination.pages" :key="index">
-        <div class="card">
-          <div class="card_content" style="padding:0">
-            <div class="img flash-container"></div>
-          </div>
-          <div class="item-title">
-            <router-link class="page-link" :to="item.path">{{ item.title }}</router-link>
+    <div v-for="(item, index) in $category.list" :key="index">
+      <div class="card-title">{{item.name}}</div>
+      <div class="grid grid-cols gap">
+        <div class="item" v-for="(item1, index1) in item.pages" :key="index1">
+          <div class="card">
+            <div class="card_content flex items-center">
+              <div class="img flash-container"></div>
+              <router-link class="link" :to="item1.path">{{ item1.title }}</router-link>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div id="pagination">
-      <Pagination />
     </div>
   </div>
 </template>
 <script>
 import Vue from "vue";
-import { Pagination } from "@vuepress/plugin-blog/lib/client/components";
 export default {
-  components: {
-    Pagination
-  },
+  components: {},
   created() {
     console.log(this);
   }
 };
 </script>
 <style lang="stylus" scoped>
-.side-nav {
-  width: 18rem;
-}
-
 .grid {
   display: grid;
-}
-
-.grid-cols {
-  grid-template-columns: repeat(7, minmax(0, 1fr));
 }
 
 .gap {
@@ -47,21 +34,52 @@ export default {
   gap: 1rem;
 }
 
+.grid-cols {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+@media (min-width: $smMedia) {
+  .grid-cols {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: $mdMedia) {
+  .grid-cols {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: $lgMedia) {
+  .grid-cols {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: $xlMedia) {
+  .grid-cols {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
 .cheatsheet {
   .item {
+    -webkit-transition: 0.35s;
+    transition: 0.35s;
+    border-radius: 4px;
+
     .img {
       background: url('../../../static/vue.jpg');
       background-size: cover;
       background-position: center;
-      height: 12rem;
-      width: 100%;
-      margin-right: 1rem;
-      border-radius: 4px;
+      height: 2.5rem;
+      width: 2.5rem;
+      margin-right: 0.6rem;
+      border-radius: 5px;
     }
 
-    .item-title {
-      border-top: 1px solid #ebeef5;
-      padding: 1rem;
+    &:hover {
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05), 0 0 1px rgba(0, 0, 0, 0.1);
     }
   }
 }
