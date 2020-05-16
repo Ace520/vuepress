@@ -4,11 +4,11 @@ module.exports = {
   description: 'Ace blog',
   themeConfig: {
     nav: [
-      { text: '首页', link: '/' },
-      { text: '博文', link: '/post/' },
-      { text: '速查表', link: '/cheatsheet/' },
-      { text: '时间轴', link: '/timeline' },
-      { text: '关于', link: '/about' },
+      { text: '首页', link: '/', layouts: ['IndexLayout'] },
+      { text: '博文', link: '/post/', layouts: ['PostLayout', 'Post', 'Tag', 'Topic'] },
+      { text: '速查表', link: '/cheatsheet/', layouts: ['CheatSheetLayout', 'CheatSheet', 'Category'] },
+      { text: '时间轴', link: '/timeline', layouts: ['TimelineLayout'] },
+      { text: '关于', link: '/about', layouts: ['AboutLayout'] },
     ],
     dateFormat: 'YYYY-MM-DD',
     pwa: {

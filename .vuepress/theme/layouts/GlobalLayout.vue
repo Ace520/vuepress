@@ -6,7 +6,7 @@
           {{ $site.title }}
         </router-link>   
         <div class="nav">
-          <router-link v-for="(item, index) in $themeConfig.nav" :key="index" :to="item.link">
+          <router-link :class="item.layouts.indexOf($page.frontmatter.layout) > -1 ? 'nav-active':''" v-for="(item, index) in $themeConfig.nav" :key="index" :to="item.link">
             {{ item.text }}
           </router-link>   
         </div>   
@@ -17,7 +17,7 @@
     </div>
     <footer class="footer flex-none">
       <div class="container mx-auto h-full flex items-center justify-center">
-        <a href="https://github.com/ulivz/70-lines-of-vuepress-blog-theme">Github</a> · Powered by VuePress</p>
+        <a href="https://github.com/Ace520">Github</a>  · Powered by VuePress</p>
       </div>
     </footer>
   </div>
@@ -28,13 +28,18 @@
   
   export default {
     components: { DefaultGlobalLayout: GlobalLayout },
+    created(){
+      console.log(this)
+    }
   }
 </script>
 <style lang="stylus">
   #global-layout {
     min-height: 101vh;
   }
+
   .header{
+  
     height: 4rem;
     background: $headerBg;
 
@@ -43,6 +48,9 @@
           color: $headerTextColor;
           margin-left: 1rem;
         }
+        .nav-active{
+          color:$primaryColor
+          }
       }
   
 
@@ -51,12 +59,26 @@
       color:$primaryColor;
       text-align: center;
       text-shadow: 0 0 0.1em, 0 0 0.3em;
+      display:none;
+      margin-left 1rem
     }
   }
-
+@media (min-width: $mdMedia) {
+  .header{
+    .title{
+      display:block}
+    }
+  }
   .footer{
     height: 4rem;
     background:$footerBg
+    color:#ffffff
+    a{
+      color:$primaryColor
+      &:hover{
+        color:$primaryColor
+        }
+    }
     }
 
 </style>

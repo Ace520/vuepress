@@ -152,13 +152,13 @@ export default {
 
     .posts-item-desc {
       margin-top: 0.5rem;
-      margin-bottom: 1rem;
+      margin-bottom: 2rem;
     }
 
     .img {
       width: 13rem;
       margin-right: 1rem;
-      height: 8rem;
+      height: 9rem;
     }
 
     .posts-item-footer {

@@ -5,7 +5,7 @@
       <div class="grid grid-cols gap">
         <div class="item" v-for="(item1, index1) in item.pages" :key="index1">
           <div class="card">
-            <div class="card_content flex items-center">
+            <div class="card_content flex items-center item-content">
               <div class="img flash-container"></div>
               <router-link class="link" :to="item1.path">{{ item1.title }}</router-link>
             </div>
@@ -19,8 +19,7 @@
 import Vue from "vue";
 export default {
   components: {},
-  created() {
-  }
+  created() {}
 };
 </script>
 <style lang="stylus" scoped>
@@ -67,12 +66,16 @@ export default {
     transition: 0.35s;
     border-radius: 4px;
 
+    .item-content {
+      padding: 1rem;
+    }
+
     .img {
       background: url('../../../static/vue.jpg');
       background-size: cover;
       background-position: center;
-      height: 2.5rem;
-      width: 2.5rem;
+      height: 2rem;
+      width: 2rem;
       margin-right: 0.6rem;
       border-radius: 5px;
     }

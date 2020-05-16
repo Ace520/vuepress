@@ -29,10 +29,9 @@ module.exports = {
           keys: ['tag', 'tags'],
           path: '/tag/',
           frontmatter: { title: '标签' },
-          layout: 'Tag',
-          itemlayout: 'Tag',
+          layout: 'PostLayout',
           pagination: {
-            perPagePosts: 3
+            perPagePosts: 2
           }
         },
         {
@@ -40,10 +39,9 @@ module.exports = {
           keys: ['topic', 'topics'],
           path: '/topic/',
           frontmatter: { title: '话题' },
-          layout: 'Topic',
-          itemlayout: 'Topic',
+          layout: 'PostLayout',
           pagination: {
-            perPagePosts: 3
+            perPagePosts: 2
           }
         },
         {
@@ -51,8 +49,7 @@ module.exports = {
           keys: ['category'],
           path: '/category/',
           frontmatter: { title: '分类' },
-          layout: 'Category',
-          itemlayout: 'Category',
+          layout: 'CheatSheetLayout',
           pagination: {
             perPagePosts: 3
           }
