@@ -10,13 +10,30 @@ module.exports = {
       { text: '时间轴', link: '/timeline', layouts: ['TimelineLayout'] },
       { text: '关于', link: '/about', layouts: ['AboutLayout'] },
     ],
+    navConfig: {
+      jumbotron: ['IndexLayout', 'AboutLayout'],
+    },
     dateFormat: 'YYYY-MM-DD',
     pwa: {
       serviceWorker: true,
       updatePopup: true
     },
     paginationComponent: 'Pagination',
-    smoothScroll: true
+    smoothScroll: true,
+    projects:[
+      {
+        title:'laravel-admin-vue',
+        summary:'Laravel-admin使用vue前后端分离版',
+        img:'https://cdn.pixabay.com/photo/2016/03/26/13/09/notebook-1280538_1280.jpg',
+        url:'https://laravel-admin.org/'
+      },
+      {
+        title:'Marvel Universe',
+        summary:'漫威宇宙：更易于调用的漫威API',
+        img:'https://cdn.pixabay.com/photo/2019/05/31/02/08/iron-man-4241268_1280.jpg',
+        url:'https://developer.marvel.com/'
+      }
+    ]
   },
   markdown: {
     anchor: { permalink: false },

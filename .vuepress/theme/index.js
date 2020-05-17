@@ -8,9 +8,6 @@ module.exports = {
           path: '/post/',
           layout: 'PostLayout',
           itemLayout: 'Post',
-          pagination: {
-            perPagePosts: 2,
-          },
         },
         {
           id: 'cheatsheet',
@@ -18,9 +15,6 @@ module.exports = {
           path: '/cheatsheet/',
           layout: 'CheatSheetLayout',
           itemLayout: 'CheatSheet',
-          pagination: {
-            perPagePosts: 2,
-          },
         },
       ],
       frontmatters: [
@@ -30,9 +24,7 @@ module.exports = {
           path: '/tag/',
           frontmatter: { title: '标签' },
           layout: 'PostLayout',
-          pagination: {
-            perPagePosts: 2
-          }
+          scopeLayout: 'PostLayout',
         },
         {
           id: "topic",
@@ -40,9 +32,7 @@ module.exports = {
           path: '/topic/',
           frontmatter: { title: '话题' },
           layout: 'PostLayout',
-          pagination: {
-            perPagePosts: 2
-          }
+          scopeLayout: 'PostLayout',
         },
         {
           id: "category",
@@ -50,9 +40,6 @@ module.exports = {
           path: '/category/',
           frontmatter: { title: '分类' },
           layout: 'CheatSheetLayout',
-          pagination: {
-            perPagePosts: 3
-          }
         },
       ],
       sitemap: {

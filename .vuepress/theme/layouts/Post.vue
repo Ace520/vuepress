@@ -1,11 +1,33 @@
 <template>
-  <div class="container mx-auto">
+  <div class="container mx-auto container-content">
     <div class="article flex">
       <div class="content flex-1">
         <div class="card mb-4">
           <div class="card_content">
             <div class="content-header">
               <h1>{{$frontmatter.title}}</h1>
+              <div class="posts-item-footer">
+                <div class="posts-item-footer-item flex items-center" v-if="$frontmatter.tags">
+                  <i class="iconfont icon-biaoqian-" />
+                  <router-link
+                    class="tag-item"
+                    v-for="(item,index) in $frontmatter.tags"
+                    :key="index"
+                    :to="'/tag/' + item"
+                  >{{ item }}</router-link>
+                </div>
+                <div class="posts-item-footer-item flex items-center" v-if="$frontmatter.topic">
+                  <i class="iconfont icon-huati" />
+                  <router-link
+                    class="link"
+                    :to="'/topic/' + $frontmatter.topic"
+                  >{{$frontmatter.topic}}</router-link>
+                </div>
+                <div class="posts-item-footer-item flex items-center" v-if="$frontmatter.date">
+                  <i class="iconfont icon-time_" />
+                  {{$frontmatter.date}}
+                </div>
+              </div>
             </div>
             <Content />
           </div>
@@ -19,10 +41,10 @@
         </div>
       </div>
       <div class="flex-none side media-show">
-        <div class="topic">
+        <div class="topic mb-4">
           <Topic />
         </div>
-        <div class="toc">
+        <div class="toc mb-4">
           <Toc />
         </div>
       </div>
@@ -56,6 +78,19 @@ export default {
     top: 0;
     box-sizing: border-box;
     z-index: 0;
+  }
+
+  .posts-item-footer {
+    color: #ffffff;
+    margin-top: 2rem;
+
+    a {
+      color: #ffffff;
+    }
+
+    .tag-item {
+      background: none;
+    }
   }
 }
 

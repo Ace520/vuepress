@@ -1,6 +1,6 @@
 <template>
   <div id="global-layout" class="flex flex-column">
-    <header class="header flex-none">
+    <header class="header flex-none" :class="$themeConfig.navConfig.jumbotron.indexOf($page.frontmatter.layout) > -1 ? 'header-jumbotron':''">
       <div class="container mx-auto h-full flex items-center justify-between">
         <router-link class="title" to="/">
           {{ $site.title }}
@@ -12,7 +12,7 @@
         </div>   
       </div>
     </header>
-    <div class="flex-1 container-content">
+    <div class="flex-1">
       <DefaultGlobalLayout/>
     </div>
     <footer class="footer flex-none">
@@ -39,7 +39,7 @@
   }
 
   .header{
-  
+    width 100%
     height: 4rem;
     background: $headerBg;
 
@@ -63,6 +63,17 @@
       margin-left 1rem
     }
   }
+  .header-jumbotron{
+    position:absolute;
+    background:transparent;
+
+    .nav{
+       a {
+          color:#ffffff;
+        }
+      }
+   
+    }
 @media (min-width: $mdMedia) {
   .header{
     .title{

@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto timeline">
+  <div class="container mx-auto timeline container-content">
     <timeline>
       <timeline-item v-for="(item, index) in items" :key="index">
         <div class="tl-title">{{item.date}}</div>

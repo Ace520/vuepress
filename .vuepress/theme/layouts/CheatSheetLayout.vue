@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto cheatsheet">
+  <div class="container mx-auto cheatsheet container-content">
     <div v-for="(item, index) in $category.list" :key="index">
       <div class="card-title">{{item.name}}</div>
       <div class="grid grid-cols gap">

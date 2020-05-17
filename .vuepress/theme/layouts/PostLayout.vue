@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto posts">
+  <div class="container mx-auto posts  container-content">
     <div class="flex">
       <div class="flex-1">
         <div class="card mb-4" v-for="(item, index) in $pagination.pages" :key="index">
@@ -120,26 +120,6 @@ export default {
     overflow: hidden;
     text-overflow: ellipsis;
   }
-
-  .posts-item-footer {
-    display: flex;
-    align-items: start;
-    flex-direction: column;
-    font-size: 14px;
-
-    .posts-item-footer-item {
-      margin-top: 0.5rem;
-
-      i {
-        margin-top: 0.1rem;
-        margin-right: 0.3rem;
-      }
-
-      .link {
-        color: #888888;
-      }
-    }
-  }
 }
 
 @media (min-width: $mdMedia) {
@@ -159,15 +139,6 @@ export default {
       width: 13rem;
       margin-right: 1rem;
       height: 9rem;
-    }
-
-    .posts-item-footer {
-      align-items: center;
-      flex-direction: unset;
-
-      .posts-item-footer-item {
-        margin-right: 1rem;
-      }
     }
   }
 }
