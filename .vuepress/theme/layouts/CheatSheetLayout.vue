@@ -6,7 +6,10 @@
         <div class="item" v-for="(item1, index1) in item.pages" :key="index1">
           <div class="card">
             <div class="card_content flex items-center item-content">
-              <div class="img flash-container"></div>
+              <div
+                class="img flash-container"
+                :style="{background: 'url(' + $themeConfig.staticUrl+ item1.frontmatter.img + ')',backgroundSize: 'cover',backgroundPosition: 'center'}"
+              ></div>
               <router-link class="link" :to="item1.path">{{ item1.title }}</router-link>
             </div>
           </div>
@@ -71,9 +74,6 @@ export default {
     }
 
     .img {
-      background: url('../../../static/vue.jpg');
-      background-size: cover;
-      background-position: center;
       height: 2rem;
       width: 2rem;
       margin-right: 0.6rem;

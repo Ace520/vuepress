@@ -55,4 +55,12 @@ export default {
     border-radius: 4px;
   }
 }
+
+.item&:hover {
+  box-shadow: 0 12px 19px -7px rgba(0, 0, 0, 0.3);
+  transform: translateY(-10px);
+  -webkit-transform: translateY(-10px);
+  -ms-transform: translateY(-10px);
+  -moz-transform: translateY(-10px);
+}
 </style>

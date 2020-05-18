@@ -1,12 +1,13 @@
 <template>
-  <div class="container mx-auto posts  container-content">
+  <div class="container mx-auto posts container-content">
     <div class="flex">
       <div class="flex-1">
         <div class="card mb-4" v-for="(item, index) in $pagination.pages" :key="index">
           <div class="card_content posts-item flex">
-            <div class="img flex-none flash-container">
-              <img :src="item.frontmatter.img" />
-            </div>
+            <div
+              class="img flex-none flash-container"
+              :style="{background: 'url(' + $themeConfig.staticUrl+ item.frontmatter.img + ')',backgroundSize: 'cover',backgroundPosition: 'center'}"
+            ></div>
             <div class="flex-1">
               <router-link class="link posts-item-title" :to="item.path">{{ item.title }}</router-link>
               <div class="posts-item-desc">{{item.summary}}</div>
@@ -75,8 +76,7 @@ export default {
   components: {
     Pagination
   },
-  created() {
-  }
+  created() {}
 };
 </script>
 <style lang="stylus" scoped>
@@ -95,13 +95,7 @@ export default {
   .img {
     height: 13rem;
     width: 100%;
-
-    img {
-      width: 100%;
-      height: 100%;
-      border-radius: 4px;
-      vertical-align: middle;
-    }
+    border-radius: 5px;
   }
 
   .posts-item-title {

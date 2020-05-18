@@ -1,8 +1,8 @@
 ---
 title: Vue.js 开源项目
 date: 2020-3-11
-img: vue.jpg
 category: vue
+img: logo/vue.png
 ---
 ::: card UI组件
 - [element](https://github.com/ElemeFE/element) - 饿了么出品的Vue2的webUI工具套件
