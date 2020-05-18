@@ -1,8 +1,8 @@
 <template>
   <div>
     <div class="index flex items-center justify-center flex-column">
-      <h1>{{poetry.content}}</h1>
-      <div>《{{poetry.origin.title}}》· {{poetry.origin.author}}</div>
+      <!-- <h1>{{poetry.content}}</h1>
+      <div>《{{poetry.origin.title}}》· {{poetry.origin.author}}</div> -->
     </div>
     <div class="projects">
       <div v-for="(item,index) in $themeConfig.projects" :key="index">
@@ -80,12 +80,6 @@ export default {
     });
     this.postsLen = postsLen;
     this.cheatSheetLen = cheatSheetLen;
-
-    let that = this;
-    const jinrishici = require("jinrishici");
-    jinrishici.load(result => {
-      that.poetry = result.data;
-    });
   }
 };
 </script>
