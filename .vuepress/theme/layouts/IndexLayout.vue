@@ -1,15 +1,29 @@
 <template>
   <div>
     <div class="index flex items-center justify-center flex-column">
-      <!-- <h1>{{poetry.content}}</h1>
-      <div>《{{poetry.origin.title}}》· {{poetry.origin.author}}</div> -->
+      <img src="https://v2.jinrishici.com/one.svg?font-size=28&spacing=2&color=white" />
     </div>
+    <div class="index-title">开源项目</div>
     <div class="projects">
       <div v-for="(item,index) in $themeConfig.projects" :key="index">
-        <div class="container mx-auto project-item flex">
+        <div v-if="index%2 === 0" class="container mx-auto project-item flex">
+          <div class="flex-1">
+            <div
+              class="img"
+              :style="{background: 'url(' + item.img + ')',backgroundSize: 'cover',backgroundPosition: 'center'}"
+            ></div>
+          </div>
           <div class="flex items-center flex-column h-full flex-1">
             <a :href="item.url" target="_blank">
-              <h1 class="text-center">{{item.title}}</h1>
+              <h2 class="text-center">{{item.title}}</h2>
+            </a>
+            <div class="summary">{{item.summary}}</div>
+          </div>
+        </div>
+        <div v-else class="container mx-auto project-item flex">
+          <div class="flex items-center flex-column h-full flex-1">
+            <a :href="item.url" target="_blank">
+              <h2 class="text-center">{{item.title}}</h2>
             </a>
             <div class="summary">{{item.summary}}</div>
           </div>
@@ -22,6 +36,7 @@
         </div>
       </div>
     </div>
+    <div class="index-title">网站统计</div>
     <div class="counts">
       <div class="container mx-auto flex">
         <div class="counts-item flex-1">
@@ -80,22 +95,33 @@ export default {
     });
     this.postsLen = postsLen;
     this.cheatSheetLen = cheatSheetLen;
-  }
+  },
+  methods: {}
 };
 </script>
 <style lang="stylus" scoped>
 .index {
-  background: url('https://cdn.pixabay.com/photo/2020/05/05/23/08/africa-5135407_1280.jpg');
+  background: url('../../../static/bg.jpg');
   background-size: cover;
   background-position: center;
-  height: 75vh;
+  height: 28rem;
   width: 100%;
-  color:#ffffff;
+  color: #ffffff;
+
+  img {
+    max-width: 90%;
+  }
+}
+
+.index-title {
+  text-align: center;
+  margin-top: 4rem;
+  margin-bottom: 3.5rem;
+  color: $primaryColor;
+  font-size: 1.6rem;
 }
 
 .projects {
-  margin: 3rem 0;
-
   .project-item {
     height: 20rem;
     width: 100%;
@@ -133,7 +159,6 @@ export default {
 }
 
 .counts {
-  margin: 2rem 0;
   background: $primaryColor;
   padding: 3rem 0;
   color: #ffffff;

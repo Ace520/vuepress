@@ -6,7 +6,7 @@ module.exports = {
           id: 'post',
           dirname: '_posts',
           path: '/post/',
-          layout: 'PostLayout',
+          layout: 'FrontmatterPagination',
           itemLayout: 'Post',
         },
         {
@@ -58,7 +58,7 @@ module.exports = {
     ['@vuepress/last-updated'],
     ['@vuepress/nprogress'],
     ['vuepress-plugin-medium-zoom', {
-      selector: 'img',
+      selector: '.article img',
       delay: 1000,
       options: {
         margin: 24,

@@ -5,10 +5,10 @@ module.exports = {
   themeConfig: {
     nav: [
       { text: '首页', link: '/', layouts: ['IndexLayout'] },
-      { text: '博文', link: '/post/', layouts: ['PostLayout', 'Post', 'Tag', 'Topic'] },
+      { text: '博文', link: '/post/', layouts: ['FrontmatterPagination', 'Post', 'Tag', 'Topic'] },
       { text: '速查表', link: '/cheatsheet/', layouts: ['CheatSheetLayout', 'CheatSheet', 'Category'] },
       { text: '时间轴', link: '/timeline', layouts: ['TimelineLayout'] },
-      { text: '关于', link: '/about', layouts: ['AboutLayout'] },
+      // { text: '关于', link: '/about', layouts: ['AboutLayout'] },
     ],
     navConfig: {
       jumbotron: ['IndexLayout', 'AboutLayout'],
