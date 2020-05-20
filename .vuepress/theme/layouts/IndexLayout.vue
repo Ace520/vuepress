@@ -9,7 +9,7 @@
     <div class="index-title">开源项目</div>
     <div class="projects">
       <div v-for="(item,index) in $themeConfig.projects" :key="index">
-        <div v-if="index%2 === 0" class="container mx-auto project-item flex">
+        <div v-if="index%2 === 0" class="container mx-auto project-item flex project-item-left">
           <div class="flex-1">
             <div
               class="img"
@@ -23,7 +23,7 @@
             <div class="summary">{{item.summary}}</div>
           </div>
         </div>
-        <div v-else class="container mx-auto project-item flex">
+        <div v-else class="container mx-auto project-item flex project-item-right">
           <div class="flex items-center flex-column h-full flex-1">
             <a :href="item.url" target="_blank">
               <h2 class="text-center">{{item.title}}</h2>
@@ -33,7 +33,7 @@
           <div class="flex-1">
             <div
               class="img"
-              :style="{background: 'url(' + item.img + ')',backgroundSize: 'cover',backgroundPosition: 'center'}"
+              :style="{background: 'url(' + $themeConfig.staticUrl + item.img + ')',backgroundSize: 'cover',backgroundPosition: 'center'}"
             ></div>
           </div>
         </div>
@@ -146,14 +146,29 @@ export default {
     }
 
     .img {
-      margin-left: 20%;
-      width: 80%;
+      width: 100%;
       height: 100%;
       border-radius: 10px;
       box-shadow: 0 6px 10px -4px rgba(0, 0, 0, 0.15);
       z-index: 1;
       border: 0 none;
       transition: transform 0.3s cubic-bezier(0.34, 2, 0.6, 1), box-shadow 0.2s ease;
+    }
+  }
+.project-item-left {
+      flex-direction: column;
+    }
+
+    .project-item-right {
+      flex-direction: column-reverse;
+    }
+  @media (min-width: $mdMedia) {
+    .project-item-left {
+      flex-direction: row;
+    }
+
+    .project-item-right {
+      flex-direction: row;
     }
   }
 }
