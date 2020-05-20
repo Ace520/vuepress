@@ -1,6 +1,9 @@
 <template>
   <div>
-    <div class="index flex items-center justify-center flex-column">
+    <div
+      class="index flex items-center justify-center flex-column"
+      :style="{background: 'url(' + $themeConfig.staticUrl + 'bg.jpg' + ')',backgroundSize: 'cover',backgroundPosition: 'center'}"
+    >
       <img src="https://v2.jinrishici.com/one.svg?font-size=28&spacing=2&color=white" />
     </div>
     <div class="index-title">开源项目</div>
@@ -10,7 +13,7 @@
           <div class="flex-1">
             <div
               class="img"
-              :style="{background: 'url(' + item.img + ')',backgroundSize: 'cover',backgroundPosition: 'center'}"
+              :style="{background: 'url(' + $themeConfig.staticUrl + item.img + ')',backgroundSize: 'cover',backgroundPosition: 'center'}"
             ></div>
           </div>
           <div class="flex items-center flex-column h-full flex-1">
@@ -101,9 +104,6 @@ export default {
 </script>
 <style lang="stylus" scoped>
 .index {
-  background: url('../../../static/bg.jpg');
-  background-size: cover;
-  background-position: center;
   height: 28rem;
   width: 100%;
   color: #ffffff;
